@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="216.0" prefWidth="477.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.crudjava.EntreCrud">
+   <children>
+      <Label layoutX="52.0" layoutY="32.0" text="Bienvenue dans le Crud">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Button fx:id="idinscription" layoutX="203.0" layoutY="108.0" mnemonicParsing="false" onAction="#inscription" text="Inscription" />
+      <Button fx:id="idconnexion" layoutX="203.0" layoutY="162.0" mnemonicParsing="false" onAction="#connexion" text="Connexion" />
+   </children>
+</AnchorPane>
