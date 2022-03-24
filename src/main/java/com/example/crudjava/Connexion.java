@@ -13,7 +13,7 @@ import java.sql.SQLException;
 public class Connexion {
 
         @FXML
-        private Button idconnexion;
+        private Button idconnexion2;
 
         @FXML
         private Label idmail;
@@ -30,8 +30,7 @@ public class Connexion {
         @FXML
         void connexion(ActionEvent event) throws SQLException {
             User user = new User();
-            user.Connexion(this.idmail.getText(),this.idmdp.getText());
+            user.Connexion(this.idmail2.getText(),this.idmdp2.getText());
             HelloApplication.changeScene("Crud.fxml");
-                ((Node)(event.getSource())).getScene().getWindow().hide();
         }
 }

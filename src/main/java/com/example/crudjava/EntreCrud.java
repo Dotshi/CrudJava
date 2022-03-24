@@ -13,10 +13,10 @@ public class EntreCrud {
 
     @FXML
     void connexion(ActionEvent event) {
-
+        HelloApplication.changeScene("Connexion");
     }
     @FXML
     void inscription(ActionEvent event) {
-
+        HelloApplication.changeScene("Inscription");
     }
 }

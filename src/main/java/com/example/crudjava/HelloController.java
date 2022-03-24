@@ -58,16 +58,4 @@ public class HelloController implements Initializable {
     void inscription(ActionEvent event) {
 
     }
-    @FXML
-    private void BoutonAction (ActionEvent event) throws Exception{
-        Stage stage;
-        if(event.getSource()==inscription){
-            stage = (Stage) inscription().getScene().getWindow();
-            stage = FXMLLoader.load(getClass().getResource("Inscription.fxml"));
-        }
-        else {
-            stage = (Stage) connexion().getScene().getWindow();
-            stage = FXMLLoader.load(getClass().getResource("Connexion.fxml"));
-        }
-    }
 }

@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToggleButton?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" prefHeight="220.0" prefWidth="357.0" spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.crudjava.HelloController">
+<VBox alignment="CENTER" prefHeight="220.0" prefWidth="357.0" spacing="20.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.crudjava.HelloController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -34,6 +32,6 @@
    <TextField fx:id="idmdp2" />
    <Label text="Confirmez" />
    <TextField fx:id="idconfirmez2" />
-   <ToggleButton fx:id="idsauvegarder" mnemonicParsing="false" onAction="#idsauvegarder" text="Sauvegarder" />
-   <ToggleButton fx:id="idretour" mnemonicParsing="false" onAction="#retour" prefHeight="25.0" prefWidth="58.0" text="Retour" />
+   <Button fx:id="idsauvegarder" mnemonicParsing="false" onAction="#sauvegarder" text="Sauvegarder" />
+   <Button fx:id="idretour" mnemonicParsing="false" onAction="#retour" prefHeight="25.0" prefWidth="58.0" text="Retour" />
 </VBox>

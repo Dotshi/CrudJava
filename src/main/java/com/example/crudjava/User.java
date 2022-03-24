@@ -3,7 +3,7 @@ package com.example.crudjava;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import BDD.Bdd;
+import BDD.BDD;
 
 public class User {
     private int idUser;
@@ -16,8 +16,8 @@ public class User {
 
 
     public String Connexion(String mail, String mdp) throws SQLException {
-        Bdd connexion = new Bdd();
-        PreparedStatement requete = connexion.getBdd().prepareStatement("SELECT * FROM `user` WHERE mail=? AND mdp=?");
+        BDD connexion = new BDD();
+        PreparedStatement requete = connexion.getBDD().prepareStatement("SELECT * FROM `user` WHERE mail=? AND mdp=?");
         requete.setString(1, mail);
         requete.setString(2, mdp);
         ResultSet resultat = requete.executeQuery();
@@ -26,8 +26,8 @@ public class User {
 
 
         public int inscription(String nom, String prenom, String mail, String mdp) throws SQLException {
-            Bdd inscription = new Bdd();
-            PreparedStatement requete = inscription.getBdd().prepareStatement("INSERT INTO `user` (`nom`, `prenom`, `mail`, `mdp`) VALUES ?,?;?,?");
+            BDD inscription = new BDD();
+            PreparedStatement requete = inscription.getBDD().prepareStatement("INSERT INTO `user` (`nom`, `prenom`, `mail`, `mdp`) VALUES ?,?;?,?");
             requete.setString(1, nom);
             requete.setString(2, prenom);
             requete.setString(3, mail);
@@ -37,15 +37,15 @@ public class User {
         }
 
         public int modifier(String nom, String prenom, String mail, String mdp) throws SQLException {
-                Bdd Connexion = new Bdd();
-                PreparedStatement requete = Connexion.getBdd().prepareStatement("UPDATE `user` (`nom`, `prenom`, `mail`, `mdp`) VALUES (?,?,?,?)");
+            BDD Connexion = new BDD();
+                PreparedStatement requete = Connexion.getBDD().prepareStatement("UPDATE `user` (`nom`, `prenom`, `mail`, `mdp`) VALUES (?,?,?,?)");
                 requete.setString(1, nom);
                 return requete.executeUpdate();
             }
 
             public int supprimer(String mail, String mdp) throws SQLException {
-                    Bdd connexion = new Bdd();
-                    PreparedStatement requete = connexion.getBdd().prepareStatement("DELETE * FROM `user` WHERE idUser");
+                BDD connexion = new BDD();
+                    PreparedStatement requete = connexion.getBDD().prepareStatement("DELETE * FROM `user` WHERE idUser");
                     requete.setInt(1,idUser);
                     requete.executeUpdate();
                     return requete.executeUpdate();
