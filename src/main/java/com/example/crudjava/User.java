@@ -3,49 +3,49 @@ package com.example.crudjava;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import BDD.BDD;
+import BDD.Bdd;
 
 public class User {
     private int idUser;
     private String nom;
     private String prenom;
-    private String mail;
+    private String email;
     private String mdp;
     private boolean estAdmin;
     private int code;
 
 
-    public String Connexion(String mail, String mdp) throws SQLException {
-        BDD connexion = new BDD();
-        PreparedStatement requete = connexion.getBDD().prepareStatement("SELECT * FROM `user` WHERE mail=? AND mdp=?");
-        requete.setString(1, mail);
+    public String Connexion(String email, String mdp) throws SQLException {
+        Bdd connexion = new Bdd();
+        PreparedStatement requete = connexion.getBdd().prepareStatement("SELECT * FROM `user` WHERE email=? AND mdp=?");
+        requete.setString(1, email);
         requete.setString(2, mdp);
         ResultSet resultat = requete.executeQuery();
         return getMail();
     }
 
 
-        public int inscription(String nom, String prenom, String mail, String mdp) throws SQLException {
-            BDD inscription = new BDD();
-            PreparedStatement requete = inscription.getBDD().prepareStatement("INSERT INTO `user` (`nom`, `prenom`, `mail`, `mdp`) VALUES ?,?;?,?");
+        public int inscription(String nom, String prenom, String email, String mdp) throws SQLException {
+            Bdd inscription = new Bdd();
+            PreparedStatement requete = inscription.getBdd().prepareStatement("INSERT INTO `user` (`nom`, `prenom`, `email`, `mdp`) VALUES ?,?;?,?");
             requete.setString(1, nom);
             requete.setString(2, prenom);
-            requete.setString(3, mail);
+            requete.setString(3, email);
             requete.setString(4, mdp);
             requete.executeUpdate();
             return requete.executeUpdate();
         }
 
-        public int modifier(String nom, String prenom, String mail, String mdp) throws SQLException {
-            BDD Connexion = new BDD();
-                PreparedStatement requete = Connexion.getBDD().prepareStatement("UPDATE `user` (`nom`, `prenom`, `mail`, `mdp`) VALUES (?,?,?,?)");
+        public int modifier(String nom, String prenom, String email, String mdp) throws SQLException {
+                Bdd Connexion = new Bdd();
+                PreparedStatement requete = Connexion.getBdd().prepareStatement("UPDATE `user` (`nom`, `prenom`, `email`, `mdp`) VALUES (?,?,?,?)");
                 requete.setString(1, nom);
                 return requete.executeUpdate();
             }
 
-            public int supprimer(String mail, String mdp) throws SQLException {
-                BDD connexion = new BDD();
-                    PreparedStatement requete = connexion.getBDD().prepareStatement("DELETE * FROM `user` WHERE idUser");
+            public int supprimer() throws SQLException {
+                    Bdd connexion = new Bdd();
+                    PreparedStatement requete = connexion.getBdd().prepareStatement("DELETE * FROM `user` WHERE idUser");
                     requete.setInt(1,idUser);
                     requete.executeUpdate();
                     return requete.executeUpdate();
@@ -70,10 +70,10 @@ public class User {
                     this.prenom = prenom;
                 }
                 public String getMail() {
-                    return mail;
+                    return email;
                 }
                 public void setMail(String mail) {
-                    this.mail = mail;
+                    this.email = mail;
                 }
                 public String getMdp() {
                     return mdp;
@@ -96,7 +96,7 @@ public class User {
                 @Override
                 public String toString()
                 {
-                    return "User [id=" + idUser + ", nom=" + nom + ", prenom=" + prenom + ", mail=" + mail + ", mdp="
+                    return "User [id=" + idUser + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email + ", mdp="
                             + mdp + ", estAdmin=" + estAdmin + ", code=" + code+"]";
                 }
             }
